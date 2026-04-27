@@ -50,6 +50,36 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
 /* Studio Grid */
 .section { padding: 40px 10% 100px 10%; }
 
+.filter-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: var(--warm-taupe);
+    color: var(--charcoal);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: var(--dusty-rose);
+    color: white;
+}
+
+.filter-btn.active {
+    background-color: var(--sage-green);
+    color: white;
+}
+
 .studio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
