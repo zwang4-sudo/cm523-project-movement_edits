@@ -17,6 +17,10 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: var(--charcoal);
     line-height: 1.6;
+    background-image: url('https://i.pinimg.com/736x/10/21/83/102183e94d7d7cb74490d159ff7481f3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* Typography per Design Doc */
@@ -31,7 +35,7 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 10%;
+    padding: 2rem 8% 1.5rem 15%;
     background-color: var(--soft-cream);
 }
 
@@ -41,19 +45,57 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
 
 /* Hero Section */
 .hero {
-    padding: 80px 10%;
+    padding: 120px 8% 0 15%;
     text-align: center;
 }
 
 .hero-inner { max-width: 650px; margin: 0 auto; }
 
-/* Studio Grid */
-.section { padding: 40px 10% 100px 10%; }
+.hero h1,
+.hero p,
+.hero .subheading {
+    color: #ffffff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+
+/* Studio Section */
+.section { padding: 0; }
+
+.studios-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+    overflow: hidden;
+}
+
+.map-panel {
+    width: calc(100% - 80px);
+    height: 45vh;
+    margin: 20px 40px 0;
+    flex-shrink: 0;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.studio-map {
+    width: 100%;
+    height: 100%;
+}
+
+.content-panel {
+    flex: 1;
+    min-height: 0;
+    padding: 20px 40px 0;
+    display: flex;
+    flex-direction: column;
+}
 
 .filter-tabs {
     display: flex;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 16px;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -81,24 +123,117 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
 }
 
 .studio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    flex-direction: row;
+    gap: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 24px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    align-items: flex-start;
 }
 
-/* Studio Cards per Design Doc (16px Radius) */
+.studio-grid::-webkit-scrollbar { height: 4px; }
+.studio-grid::-webkit-scrollbar-thumb { background: var(--warm-taupe); border-radius: 4px; }
+
 .studio-card {
-    background-color: var(--warm-taupe);
-    padding: 40px 30px;
-    border-radius: 16px;
+    flex-shrink: 0;
+    width: calc(25% - 18px);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    scroll-snap-align: start;
     transition: transform 0.3s ease;
+}
+
+.studio-card:hover { transform: translateY(-4px); }
+
+.studio-card-content {
+    background: white;
+    padding: 0;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    max-height: calc(55svh - 80px);
 }
 
-.studio-card:hover { transform: translateY(-5px); }
+.studio-card-img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: cover;
+    display: block;
+    order: 0;
+}
+
+.studio-card-body {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.studio-card-body .btn-primary {
+    justify-self: start;
+}
+
+.studio-card.active-card .studio-card-content {
+    outline: 3px solid var(--sage-green);
+    outline-offset: -2px;
+}
+
+/* Genre-specific title fonts */
+.studio-card[data-genre="classical"] h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-style: italic;
+}
+
+.studio-card[data-genre="urban"] h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 34px;
+    letter-spacing: 3px;
+}
+
+.studio-card[data-genre="contemporary"] h3 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.studio-card[data-genre="jazz"] h3 {
+    font-family: 'Abril Fatface', serif;
+    font-size: 28px;
+}
+
+.studio-card[data-genre="ballroom"] h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.studio-card[data-genre="latin"] h3 {
+    font-family: 'Pacifico', cursive;
+    font-size: 26px;
+}
+
+.studio-card[data-genre="street"] h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
 
 .card-tag {
     font-size: 12px;
@@ -133,4 +268,139 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
     background-color: var(--soft-cream);
     border-top: 1px solid var(--warm-taupe);
     font-size: 14px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: var(--soft-cream);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--warm-taupe);
+    border-radius: 16px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close {
+    color: var(--charcoal);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: var(--dusty-rose);
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal label {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.modal input,
+.modal textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid var(--warm-taupe);
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.modal textarea {
+    resize: vertical;
+}
+
+.form-status {
+    font-size: 14px;
+    margin-top: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ── Mobile layout ── */
+@media (max-width: 768px) {
+
+    .section {
+        padding: 0;
+    }
+
+    /* Column: map fixed on top, cards below */
+    .studios-layout {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        height: 100svh;
+        overflow: hidden;
+    }
+
+    /* Map: explicit 16:9 height Leaflet can detect */
+    .map-panel {
+        width: 100%;
+        height: 56vw;
+        flex-shrink: 0;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    }
+
+    .studio-map {
+        position: static;
+        width: 100%;
+        height: 100%;
+    }
+
+    .content-panel {
+        padding: 12px 12px 0;
+    }
+
+    .studio-card {
+        width: 260px;
+    }
+
+    .studio-card-img {
+        height: 130px;
+    }
+
+    /* Filter tabs fixed at bottom */
+    .filter-tabs {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 10px 12px;
+        background: var(--soft-cream);
+        border-top: 1px solid var(--warm-taupe);
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 8px;
+        z-index: 100;
+        box-shadow: 0 -4px 12px rgba(0,0,0,0.06);
+    }
+
+    .filter-tabs::-webkit-scrollbar { display: none; }
 }

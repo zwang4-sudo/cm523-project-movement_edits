@@ -4,99 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Movement Edit | Boston Dance Studio Reviews</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Dancing+Script:wght@600;700&family=Josefin+Sans:wght@400;600&family=Open+Sans:wght@400;600&family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="styles/styles.css">
-    <script src="scripts/scripts.js"></script>
 </head>
 <body>
-
-    <nav class="navbar">
-        <div class="nav-logo">The Movement Edit</div>
-        <div class="nav-links">
-            <a href="#studios" class="nav-item">Explore Studios</a>
-            <a href="#" class="btn-secondary">Submit a Review</a>
-        </div>
-    </nav>
 
     <header class="hero">
         <div class="hero-inner">
             <span class="subheading">Curated Selection</span>
-            <h1>Find Your Rhythm</h1>
-            <p>An artistic review of the top 8 dance spaces in the Boston area for grace, grit, and growth.</p>
+            <h1>The Movement Edit</h1>
+            <p>A Collection of 8 dance spaces in the Boston area for grace, grit, and growth.</p>
         </div>
     </header>
 
     <section id="studios" class="section">
-        <div class="filter-tabs">
-            <button class="filter-btn active" data-genre="all">All</button>
-            <button class="filter-btn" data-genre="classical">Classical</button>
-            <button class="filter-btn" data-genre="contemporary">Contemporary</button>
-            <button class="filter-btn" data-genre="urban">Urban</button>
-            <button class="filter-btn" data-genre="jazz">Jazz</button>
-            <button class="filter-btn" data-genre="ballroom">Ballroom</button>
-        </div>
-        <div class="studio-grid">
-            <div class="studio-card">
-                <div class="card-tag">Classical</div>
-                <h3>Boston Ballet</h3>
-                <p class="body-text"><strong>Location:</strong> South End, Newton, Marblehead. <br><strong>Genres:</strong> Classical Ballet, Contemporary, Barre. <br><strong>Fees:</strong> $20–$25 drop-in. <br>A world-class institution offering professional-grade instruction for all ages through their Adult Dance Program.</p>
-                <a href="https://www.bostonballet.org/education-program/open-classes/" class="btn-primary">Visit Studio</a>
+        <div class="studios-layout">
+            <div class="map-panel">
+                <div class="studio-map"></div>
             </div>
+            <div class="content-panel">
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-genre="all">All</button>
+                    <button class="filter-btn" data-genre="classical">Classical</button>
+                    <button class="filter-btn" data-genre="contemporary">Contemporary</button>
+                    <button class="filter-btn" data-genre="urban">Urban</button>
+                    <button class="filter-btn" data-genre="jazz">Jazz</button>
+                    <button class="filter-btn" data-genre="ballroom">Ballroom</button>
+                </div>
+                <div class="studio-grid">
+                <div class="studio-card" data-genre="classical" data-lat="42.3437" data-lng="-71.0684" data-locations='[{"lat":42.3437,"lng":-71.0684,"label":"South End"},{"lat":42.3296,"lng":-71.2065,"label":"Newton"}]'>
+                    <div class="studio-card-content">
+                        <img class="studio-card-img" src="https://bostonglobe-prod.cdn.arcpublishing.com/resizer/v2/TUQ5MG3EEJAKBI25KFCPEDAJRY.jpg?auth=3261f7b210778ae0460ff6955196e749181abd6fe8df3e02ed03aacd05a94bc9&width=1440" alt="Boston Ballet">
+                        <div class="studio-card-body">
+                            <div class="card-tag">Classical</div>
+                            <h3>Boston Ballet</h3>
+                            <p class="body-text"><strong>Location:</strong> South End, Newton. <br><strong>Genres:</strong> Classical Ballet, Contemporary, Barre. <br><strong>Fees:</strong> $20–$25 drop-in. <br>A world-class institution offering professional-grade instruction for all ages through their Adult Dance Program.</p>
+                            <a href="https://www.bostonballet.org/education-program/open-classes/" class="btn-primary">Visit Studio</a>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="studio-card">
-                <div class="card-tag">Classical</div>
-                <h3>Arrais Ballet</h3>
-                <p class="body-text"><strong>Location:</strong> Needham, MA. <br><strong>Genres:</strong> Classical Ballet, Pointe, Contemporary. <br><strong>Fees:</strong> $25 per class. <br>Founded by Paulo Arrais, this studio offers refined technique and personalized artistry in an intimate setting.</p>
-                <a href="https://www.arraisballet.com" class="btn-primary">Visit Studio</a>
+                <div class="studio-card" data-genre="classical" data-lat="42.2740" data-lng="-71.2350">
+                    <div class="studio-card-content">
+                        <img class="studio-card-img" src="https://static.wixstatic.com/media/f6e3be_4a12d92f14da40feb5ef6eee94e17da7~mv2.jpg/v1/fill/w_824,h_642,fp_0.41_0.51,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/BW%20Paulo.jpg" alt="Arrais Ballet">
+                        <div class="studio-card-body">
+                            <div class="card-tag">Classical</div>
+                            <h3>Arrais Ballet</h3>
+                            <p class="body-text"><strong>Location:</strong> Needham, MA. <br><strong>Genres:</strong> Classical Ballet, Pointe, Contemporary. <br><strong>Fees:</strong> $25 per class. <br>Founded by Paulo Arrais, this studio offers refined technique and personalized artistry in an intimate setting.</p>
+                            <a href="https://www.arraisballet.com" class="btn-primary">Visit Studio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="studio-card" data-genre="urban" data-lat="42.4040" data-lng="-71.0540">
+                    <div class="studio-card-content">
+                        <img class="studio-card-img" src="https://www.southwestern.edu/live/image/gid/98/width/600/height/600/crop/1/18818_phunk_phenomenon.jpg" alt="Phunk Phenomenon">
+                        <div class="studio-card-body">
+                            <div class="card-tag">Urban</div>
+                            <h3>Phunk Phenomenon</h3>
+                            <p class="body-text"><strong>Location:</strong> Everett, MA. <br><strong>Genres:</strong> Hip-Hop, Popping, Locking, Breaking. <br><strong>Fees:</strong> $15–$20 drop-in. <br>A "non-traditional" complex famous for pop-culture dance, focusing on the authentic culture and five elements of Hip-Hop.</p>
+                            <a href="https://www.phunkphenomenon.com/copy-of-classes" class="btn-primary">Visit Studio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="studio-card" data-genre="contemporary" data-genres="contemporary jazz" data-lat="42.3475" data-lng="-71.0660">
+                    <div class="studio-card-content">
+                        <img class="studio-card-img" src="https://images.squarespace-cdn.com/content/v1/540c6539e4b0a1896f040ddc/1623455832889-5UEDJMC0ZRWQGFL6YSAE/Email+Headers+w+text+-5.png" alt="Urbanity Dance">
+                        <div class="studio-card-body">
+                            <div class="card-tag">Contemporary / Jazz</div>
+                            <h3>Urbanity Dance</h3>
+                            <p class="body-text"><strong>Location:</strong> South End, Boston. <br><strong>Genres:</strong> Contemporary, Modern, Jazz. <br><strong>Fees:</strong> $20 drop-in (New student deals available). <br>Bridges the gap between professional art and community engagement with a highly supportive atmosphere.</p>
+                            <a href="https://www.urbanitydance.org/" class="btn-primary">Visit Studio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="studio-card" data-genre="jazz" data-lat="42.3740" data-lng="-71.1180">
+                    <div class="studio-card-content">
+                        <img class="studio-card-img" src="https://i0.wp.com/www.cambridgeday.com/wp-content/uploads/2016/09/092016fi-The-Dance-Complex.jpg?fit=505%2C275&ssl=1" alt="The Dance Complex">
+                        <div class="studio-card-body">
+                            <div class="card-tag">Jazz</div>
+                            <h3>The Dance Complex</h3>
+                            <p class="body-text"><strong>Location:</strong> Central Square, Cambridge. <br><strong>Genres:</strong> African, Flamenco, Vogue, Tap, Ballet. <br><strong>Fees:</strong> $18–$22 per class. <br>A massive, historic hub acting as a clearinghouse for independent teachers and diverse global styles.</p>
+                            <a href="https://www.dancecomplex.org/" class="btn-primary">Visit Studio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="studio-card" data-genre="ballroom" data-lat="42.3790" data-lng="-71.2352">
+                    <div class="studio-card-content">
+                        <img class="studio-card-img" src="https://images.squarespace-cdn.com/content/v1/594316f21e5b6c660cd17a71/1502253498618-UMBCKXAOSFHNFP0HD3V6/firebeatballroom-privatesalsalesson.jpg" alt="Firebeat Ballroom">
+                        <div class="studio-card-body">
+                            <div class="card-tag">Ballroom</div>
+                            <h3>Firebeat Ballroom</h3>
+                            <p class="body-text"><strong>Location:</strong> Waltham, MA. <br><strong>Genres:</strong> Waltz, Tango, Salsa, Cha Cha. <br><strong>Fees:</strong> $25 drop-in / $125 Private. <br>A sleek, upscale studio specializing in high-level competitive training and elegant social ballroom dance.</p>
+                            <a href="https://www.firebeatballroom.com/" class="btn-primary">Visit Studio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="studio-card" data-genre="latin" data-lat="42.3656" data-lng="-71.1323" data-locations='[{"lat":42.3529,"lng":-71.1312,"label":"Allston"},{"lat":42.3731,"lng":-71.1197,"label":"Cambridge"}]'>
+                    <div class="studio-card-content">
+                        <img class="studio-card-img" src="https://images.squarespace-cdn.com/content/v1/593996c944024356cd0b1a8f/1723063803959-GV60FYX1J55GA40K7ROD/_DSC6989-Edit-Edit.jpg" alt="Salsa y Control">
+                        <div class="studio-card-body">
+                            <div class="card-tag">Latin</div>
+                            <h3>Salsa y Control</h3>
+                            <p class="body-text"><strong>Location:</strong> Allston & Cambridge. <br><strong>Genres:</strong> Salsa (On 1) and Bachata. <br><strong>Fees:</strong> $20 drop-in / $90 for 5-week sessions. <br>One of New England's most respected Salsa companies, known for emphasizing technique and "flavor."</p>
+                            <a href="#" class="btn-primary">Visit Studio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="studio-card" data-genre="street" data-lat="42.3566" data-lng="-71.0569">
+                    <div class="studio-card-content">
+                        <img class="studio-card-img" src="https://bostonmoms.com/wp-content/uploads/2025/03/16603103_10154124103811993_6059736306483188511_n-e1683740092864.jpg" alt="Boston Dance Studios">
+                        <div class="studio-card-body">
+                            <div class="card-tag">Street</div>
+                            <h3>Boston Dance Studios</h3>
+                            <p class="body-text"><strong>Location:</strong> Downtown (Friend St). <br><strong>Genres:</strong> Commercial Hip-Hop, Street Jazz, Heels. <br><strong>Fees:</strong> $22 per class. <br>The premier hub for professional-level street styles and commercial choreography in the heart of the city.</p>
+                            <a href="https://www.bostondance.org/" class="btn-primary">Visit Studio</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="studio-card">
-                <div class="card-tag">Urban</div>
-                <h3>Phunk Phenomenon</h3>
-                <p class="body-text"><strong>Location:</strong> Everett, MA. <br><strong>Genres:</strong> Hip-Hop, Popping, Locking, Breaking. <br><strong>Fees:</strong> $15–$20 drop-in. <br>A "non-traditional" complex famous for ABDC, focusing on the authentic culture and five elements of Hip-Hop.</p>
-                <a href="https://www.phunkphenomenon.com/copy-of-classes" class="btn-primary">Visit Studio</a>
-            </div>
-
-            <div class="studio-card" data-genres="contemporary jazz">
-                <div class="card-tag">Contemporary / Jazz</div>
-                <h3>Urbanity Dance</h3>
-                <p class="body-text"><strong>Location:</strong> South End, Boston. <br><strong>Genres:</strong> Contemporary, Modern, Jazz. <br><strong>Fees:</strong> $20 drop-in (New student deals available). <br>Bridges the gap between professional art and community engagement with a highly supportive atmosphere.</p>
-                <a href="https://www.urbanitydance.org/" class="btn-primary">Visit Studio</a>
-            </div>
-
-            <div class="studio-card">
-                <div class="card-tag">Jazz</div>
-                <h3>The Dance Complex</h3>
-                <p class="body-text"><strong>Location:</strong> Central Square, Cambridge. <br><strong>Genres:</strong> African, Flamenco, Vogue, Tap, Ballet. <br><strong>Fees:</strong> $18–$22 per class. <br>A massive, historic hub acting as a clearinghouse for independent teachers and diverse global styles.</p>
-                <a href="https://www.dancecomplex.org/" class="btn-primary">Visit Studio</a>
-            </div>
-
-            <div class="studio-card">
-                <div class="card-tag">Ballroom</div>
-                <h3>Firebeat Ballroom</h3>
-                <p class="body-text"><strong>Location:</strong> Waltham, MA. <br><strong>Genres:</strong> Waltz, Tango, Salsa, Cha Cha. <br><strong>Fees:</strong> $25 drop-in / $125 Private. <br>A sleek, upscale studio specializing in high-level competitive training and elegant social ballroom dance.</p>
-                <a href="https://www.firebeatballroom.com/" class="btn-primary">Visit Studio</a>
-            </div>
-
-            <div class="studio-card">
-                <div class="card-tag">Latin</div>
-                <h3>Salsa y Control</h3>
-                <p class="body-text"><strong>Location:</strong> Allston & Cambridge. <br><strong>Genres:</strong> Salsa (On 1) and Bachata. <br><strong>Fees:</strong> $20 drop-in / $90 for 5-week sessions. <br>One of New England’s most respected Salsa companies, known for emphasizing technique and "flavor."</p>
-                <a href="#" class="btn-primary">Visit Studio</a>
-            </div>
-
-            <div class="studio-card">
-                <div class="card-tag">Street</div>
-                <h3>Boston Dance Studios</h3>
-                <p class="body-text"><strong>Location:</strong> Downtown (Friend St). <br><strong>Genres:</strong> Commercial Hip-Hop, Street Jazz, Heels. <br><strong>Fees:</strong> $22 per class. <br>The premier hub for professional-level street styles and commercial choreography in the heart of the city.</p>
-                <a href="#" class="btn-primary">Visit Studio</a>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2026 The Movement Edit &bull; Artistic Reviews for the Modern Dancer</p>
+        <p>&copy; 2026 The Movement Edit &bull; A Collection for the Dancers in Boston Area</p>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="scripts/scripts.js"></script>
 </body>
 </html>
