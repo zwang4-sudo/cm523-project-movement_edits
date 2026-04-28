@@ -45,7 +45,7 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
 
 /* Hero Section */
 .hero {
-    padding: 120px 8% 0 15%;
+    padding: 1rem 8% 0 15%;
     text-align: center;
 }
 
@@ -124,16 +124,14 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
 
 .studio-grid {
     display: flex;
-    flex: 1;
-    min-height: 0;
     flex-direction: row;
     gap: 24px;
     overflow-x: auto;
-    overflow-y: hidden;
     padding-bottom: 24px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     align-items: flex-start;
+    height: auto;
 }
 
 .studio-grid::-webkit-scrollbar { height: 4px; }
@@ -147,6 +145,7 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
     border-radius: 0;
     scroll-snap-align: start;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .studio-card:hover { transform: translateY(-4px); }
@@ -160,7 +159,6 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    max-height: calc(55svh - 80px);
 }
 
 .studio-card-img {
@@ -174,12 +172,10 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
 }
 
 .studio-card-body {
-    flex: 1;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    overflow-y: auto;
 }
 
 .studio-card-body .btn-primary {
@@ -268,6 +264,10 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
     background-color: var(--soft-cream);
     border-top: 1px solid var(--warm-taupe);
     font-size: 14px;
+}
+
+.footer p {
+    margin: 0;
 }
 
 /* Modal Styles */
@@ -384,22 +384,17 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
         height: 130px;
     }
 
-    /* Filter tabs fixed at bottom */
+    /* Filter tabs inline at top of content panel */
     .filter-tabs {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: 0;
-        padding: 10px 12px;
-        background: var(--soft-cream);
-        border-top: 1px solid var(--warm-taupe);
-        justify-content: flex-start;
+        position: static;
         flex-wrap: nowrap;
         overflow-x: auto;
-        gap: 8px;
-        z-index: 100;
-        box-shadow: 0 -4px 12px rgba(0,0,0,0.06);
+        justify-content: flex-start;
+        padding: 0;
+        margin-bottom: 10px;
+        background: none;
+        border: none;
+        box-shadow: none;
     }
 
     .filter-tabs::-webkit-scrollbar { display: none; }

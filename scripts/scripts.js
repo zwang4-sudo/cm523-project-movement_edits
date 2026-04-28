@@ -92,6 +92,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     studioCards.forEach(card => observer.observe(card));
 
+    // Click a card → map flies to its location
+    studioCards.forEach(card => {
+        card.addEventListener('click', () => {
+            showMarkerFor(card);
+            studioCards.forEach(c => c.classList.remove('active-card'));
+            card.classList.add('active-card');
+        });
+    });
+
     // On mobile the cards scroll horizontally — detect which card is centred in the grid
     const studioGrid = document.querySelector('.studio-grid');
     if (studioGrid) {
