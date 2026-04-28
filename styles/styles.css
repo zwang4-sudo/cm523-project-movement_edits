@@ -42,6 +42,8 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
 .nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; }
 .nav-links { display: flex; align-items: center; gap: 30px; }
 .nav-item { text-decoration: none; color: var(--charcoal); font-size: 14px; font-weight: 600; }
+.nav-item.active-nav { color: var(--dusty-rose); border-bottom: 2px solid var(--dusty-rose); padding-bottom: 2px; }
+.nav-item:hover { color: var(--dusty-rose); }
 
 /* Hero Section */
 .hero {
