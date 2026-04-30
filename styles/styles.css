@@ -66,8 +66,6 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
 .studios-layout {
     display: flex;
     flex-direction: column;
-    height: 100svh;
-    overflow: hidden;
 }
 
 .map-panel {
@@ -87,9 +85,7 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
 }
 
 .content-panel {
-    flex: 1;
-    min-height: 0;
-    padding: 20px 40px 0;
+    padding: 20px 40px 40px;
     display: flex;
     flex-direction: column;
 }
@@ -129,11 +125,11 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
     flex-direction: row;
     gap: 24px;
     overflow-x: auto;
+    overflow-y: hidden;
     padding-bottom: 24px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     align-items: flex-start;
-    height: auto;
 }
 
 .studio-grid::-webkit-scrollbar { height: 4px; }
@@ -349,13 +345,11 @@ h3 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 12p
         padding: 0;
     }
 
-    /* Column: map fixed on top, cards below */
+    /* Column: map on top, cards below */
     .studios-layout {
         flex-direction: column;
         gap: 0;
         padding: 0;
-        height: 100svh;
-        overflow: hidden;
     }
 
     /* Map: explicit 16:9 height Leaflet can detect */
